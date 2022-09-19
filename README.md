@@ -65,7 +65,7 @@ aptos move publish --named-addresses liquidswap_lp=<your address>
 aptos move run \
     --function-id=0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::scripts::register_pool_and_add_liquidity \
     --type-args '<CoinA Type>' '<CoinB Type>' '<your address>::lp::LP<CoinAType,CoinBType>' \
-    --args 'u8:1' 'u64:1000000' 'u64:1000000' 'u64:1000000' 'u64:1000000'
+    --args 'u8:2' 'u64:1000000' 'u64:1000000' 'u64:1000000' 'u64:1000000'
 ```
 
 eg
@@ -73,7 +73,7 @@ eg
 aptos move run \
     --function-id=0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::scripts::register_pool_and_add_liquidity \
     --type-args '0x1::aptos_coin::AptosCoin' '0x35ce8b3fe6d0c3baa7386bccd3d15ce7825d8568237bf48d510ae4f1ddeeff94::sun_coin::SunCoin' '0x35ce8b3fe6d0c3baa7386bccd3d15ce7825d8568237bf48d510ae4f1ddeeff94::lp::LP<0x1::aptos_coin::AptosCoin,0x35ce8b3fe6d0c3baa7386bccd3d15ce7825d8568237bf48d510ae4f1ddeeff94::sun_coin::SunCoin>' \
-    --args 'u8:1' 'u64:1000000' 'u64:1000000' 'u64:1000000' 'u64:1000000'
+    --args 'u8:2' 'u64:1000000' 'u64:1000000' 'u64:1000000' 'u64:1000000'
 ```
 
 The entry function is
