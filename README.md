@@ -1,21 +1,41 @@
 # liquidswap-pool-example
 
 - [liquidswap-pool-example](#liquidswap-pool-example)
+  - [init your local env](#init-your-local-env)
   - [publish & mint your coin](#publish--mint-your-coin)
   - [publish your LP](#publish-your-lp)
   - [add liquid pool](#add-liquid-pool)
-  - [import you pool to liquidswap](#import-you-pool-to-liquidswap)
+  - [import your pool to liquidswap](#import-your-pool-to-liquidswap)
 
+
+## init your local env
+
+1. init aptos project.
+```sh
+aptos init
+```
+
+2. make sure aptos lib path is correct in Move.toml
+```
+[dependencies]
+AptosFramework = { local = "../../aptos-core/aptos-move/framework/aptos-framework" }
+AptosStdlib = { local = "../../aptos-core/aptos-move/framework/aptos-stdlib" }
+```
 
 ## publish & mint your coin
 
+Enter to Coin dir.
+
 ```sh
+# publish module
 aptos move publish --named-addresses SunCoin=<your address>
 
+# register coin type for your account
 aptos move run \
     --function-id=0x1::managed_coin::register \
     --type-args '<your address>::sun_coin::SunCoin'
 
+# mint some test coin to your account
 aptos move run \
     --function-id=0x1::managed_coin::mint \
     --type-args '<your address>::sun_coin::SunCoin' \
@@ -27,6 +47,7 @@ aptos move run \
 Enter to LiquidswapLP dir.
 
 ```sh
+# publish module
 aptos move publish --named-addresses liquidswap_lp=<your address>
 ```
 
@@ -35,6 +56,7 @@ aptos move publish --named-addresses liquidswap_lp=<your address>
 0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9 is liquidswap app address.
 
 ```sh
+# register pool and add liquidity
 aptos move run \
     --function-id=0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::scripts::register_pool_and_add_liquidity \
     --type-args '<CoinA Type>' '<CoinB Type>' '<your address>::lp::LP<CoinAType,CoinBType>' \
@@ -80,7 +102,7 @@ public entry fun register_pool_and_add_liquidity<X, Y, LP>(
 ```
 
 
-## import you pool to liquidswap
+## import your pool to liquidswap
 
 Open liquidswap [https://liquidswap.com/#/](https://liquidswap.com/#/)
 
