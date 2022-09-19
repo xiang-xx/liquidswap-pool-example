@@ -55,6 +55,11 @@ aptos move publish --named-addresses liquidswap_lp=<your address>
 
 0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9 is liquidswap app address.
 
+**len(CoinA Symbol) <= len(CoinB Symbol), then CoinA Symbol < CoinB Symbol**, examples:
+- `APT, BTC`  ok
+- `APT, OP`   fail
+- `SUN, MOON` ok
+
 ```sh
 # register pool and add liquidity
 aptos move run \
