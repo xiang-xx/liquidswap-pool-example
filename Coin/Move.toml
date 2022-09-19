@@ -1,0 +1,12 @@
+[package]
+name = "SunCoin"
+version = "0.0.1"
+
+[dependencies]
+#AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "16bec80146da2f3fd28b948cf25f807e09e92e23" }
+#AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-stdlib", rev = "16bec80146da2f3fd28b948cf25f807e09e92e23" }
+AptosFramework = { local = "../../aptos-core/aptos-move/framework/aptos-framework" }
+AptosStdlib = { local = "../../aptos-core/aptos-move/framework/aptos-stdlib" }
+
+[addresses]
+liquidswap_lp = "0x35ce8b3fe6d0c3baa7386bccd3d15ce7825d8568237bf48d510ae4f1ddeeff94"
